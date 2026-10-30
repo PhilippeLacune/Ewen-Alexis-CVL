@@ -39,3 +39,49 @@ body::after{background:linear-gradient(180deg,#171027 0%,#211837 28%,#2a153b 60%
 .portrait.visual-empty{background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible;display:flex;align-items:center;justify-content:center;height:auto;min-height:240px}
 .portrait img{display:block;width:auto;height:auto;max-width:none;max-height:none;flex-shrink:0;object-fit:initial}
 @media(max-width:760px){.portrait.visual-empty{height:auto;min-height:230px}}
+
+/* Téléphones et tablettes : colonnes souples et lecture sans débordement. */
+html{-webkit-text-size-adjust:100%;scroll-padding-top:24px}
+.hero>*,.candidates>*,.program-grid>*,.faq-section>*,.contact-panel>*{min-width:0}
+main,footer,.legal{overflow-wrap:anywhere}
+@media(max-width:1000px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .campaign-art img,.portrait img{max-width:100%!important;width:auto!important;height:auto!important;min-width:0;flex-shrink:1}
+}
+@media(max-width:760px){
+  .section{padding:48px 20px}
+  .hero{grid-template-columns:minmax(0,1fr);padding-top:38px;gap:26px}
+  h1{font-size:clamp(2rem,7.8vw,3.5rem);letter-spacing:-.045em;line-height:1.1;margin-bottom:24px}
+  h2{font-size:clamp(1.8rem,7.2vw,2.7rem);letter-spacing:-.035em;line-height:1.15}
+  h3{line-height:1.3}
+  .hero-description{max-width:none;font-size:16px}
+  .campaign-art.visual-empty{min-height:0;width:100%;max-width:100%}
+  .campaign-art img{max-width:100%!important;width:auto!important;height:auto!important}
+  .portrait.visual-empty{min-height:0;height:auto;width:100%}
+  .portrait img{max-width:100%!important;width:auto!important;height:auto!important}
+  .campaign-art:empty,.portrait:empty{display:none}
+  .candidates,.program-grid,.commitments,.faq-section,.contact-panel{grid-template-columns:minmax(0,1fr)}
+  .candidates{gap:36px;align-items:start}
+  .candidate-info,.idea{padding:24px}
+  .candidate-info>p:not(.eyebrow):not(.muted),.idea p,.faq details p,.contact-panel p{font-size:16px;line-height:1.7}
+  .actions{display:flex;flex-direction:column;align-items:stretch;gap:12px}
+  .button,.text-link{min-height:48px;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .button{justify-content:space-between;padding:14px 20px}
+  .ribbon{padding:18px 20px;gap:10px 18px;text-align:center;font-size:11px;line-height:1.6}
+  .ribbon span{max-width:100%}
+  .ribbon span:last-child{display:block;width:100%}
+  .ribbon b:last-of-type{display:none}
+  .faq summary{min-height:48px;padding:12px 4px;font-size:16px;line-height:1.5}
+  .faq details,.faq details:first-child{padding:8px 0}
+  .faq details p{margin:8px 4px 18px}
+  .contact-panel{padding:24px;gap:24px}
+  .contact-panel h2{font-size:clamp(1.8rem,7.2vw,2.7rem)}
+  .contact-details{padding:24px 0 0}
+  .contact-details small,.template-note,.program-note{font-size:13px;line-height:1.6}
+  .footer{padding:24px 20px;align-items:stretch}
+  .footer .brand{white-space:normal}
+  .footer p,.footer>a:last-child,.legal p{font-size:13px;line-height:1.7}
+  .footer>a{display:flex;align-items:center;min-height:44px}
+  .legal{padding:20px 20px 32px;padding-bottom:max(32px,env(safe-area-inset-bottom))}
+}
+@media(max-width:360px){.section{padding-inline:16px}.candidate-info,.idea,.contact-panel{padding:20px}.ribbon b{display:none}.ribbon span{width:100%}}
